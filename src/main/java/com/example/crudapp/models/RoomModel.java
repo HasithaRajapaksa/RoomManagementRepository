@@ -3,6 +3,7 @@ package com.example.crudapp.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Rooms")
@@ -21,6 +22,9 @@ public class RoomModel {
 
     @Column(name = "information")
     private String info;
+
+    @OneToMany(mappedBy = "roomModel")
+    Set<ReservationsModel> reservations;
 
     public RoomModel() {
     }
