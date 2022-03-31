@@ -4,6 +4,7 @@ import com.example.crudapp.models.Room;
 import com.example.crudapp.models.RoomModel;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BaseService {
 
@@ -15,7 +16,7 @@ public interface BaseService {
         return null;
     }
 
-    public default RoomModel findById(Integer id) {
+    public default RoomModel getById(Integer id) {
         return null;
     }
 

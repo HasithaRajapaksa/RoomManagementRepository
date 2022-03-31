@@ -30,13 +30,13 @@ public class RoomRestController {
     }
 
     @GetMapping("/find/{id}")
-    public RoomModel findById(@PathVariable Integer id){
-            return roomService.findById(id);
+    public RoomModel getById(@PathVariable Integer id){
+            return roomService.getById(id);
     }
 
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<?> removeById(@PathVariable Integer id){
-            RoomModel room = roomService.findById(id);
+            RoomModel room = roomService.getById(id);
             roomService.remove(room);
             return new ResponseEntity<String>("Deleted", HttpStatus.OK);
     }

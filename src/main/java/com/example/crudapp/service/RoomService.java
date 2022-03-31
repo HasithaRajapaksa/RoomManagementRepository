@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoomService implements BaseService{
@@ -26,7 +27,7 @@ public class RoomService implements BaseService{
     }
 
     @Override
-    public RoomModel findById(Integer id) {
+    public RoomModel getById(Integer id) {
         return roomRepository.getById(id);
     }
 

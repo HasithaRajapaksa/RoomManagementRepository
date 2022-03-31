@@ -1,0 +1,66 @@
+1. Table structure
+
+Room Management
+
+
+Tables - Room,User,Reservation - many to many
+
+Room - id, information, name, number
+User - id, Username
+
+examples
+
+Room Table
+
+1  R1 
+2  R2 
+3  R3 
+
+User Table
+
+1 hasitha
+2 wanindu
+3 Vijey
+4 madhu
+
+
+
+M:M
+
+Rservation
+
+Id UserID(ref) RoomID(ref)    date numberOfHours
+
+x1   0001          1         12/01/2022  8
+x2   0001          1         18/01/2022  9 
+
+
+2. Sql query for mutiple reservations 
+
+SELECT user.Username, count(reservation.rid)
+FROM user
+LEFT JOIN reservation
+ON user.id =reservation.userid 
+where reservation.datein between '2022-01-14'AND '2022-02-13'
+group by user.Username;
+
+
+3. Reservation Table
+
+
+CREATE TABLE Reservation(
+  rid int,
+  roomid int,
+  userid int,
+  date varchar(255),
+  hours int,
+  PRIMARY KEY (rid),
+  FOREIGN KEY (roomid) REFERENCES rooms(id),
+  FOREIGN KEY (userid) REFERENCES user(id)
+                        
+);
+
+
+
+
+
