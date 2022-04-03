@@ -40,4 +40,20 @@ public class RoomRestController {
             roomService.remove(room);
             return new ResponseEntity<String>("Deleted", HttpStatus.OK);
     }
+
+    //JPQL
+    @GetMapping("/findBynumber/{no}")
+    public RoomModel findByNumber(@PathVariable Integer no){
+        return roomService.getRoomModelBynumber(no);
+    }
+
+    @GetMapping("/findBynum/{no}")
+    public RoomModel findByNum(@PathVariable Integer no){
+        return roomService.getRoomModelNum(no);
+    }
+
+
+
+
+
 }

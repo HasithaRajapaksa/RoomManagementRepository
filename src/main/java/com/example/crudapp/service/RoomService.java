@@ -35,4 +35,16 @@ public class RoomService implements BaseService{
     public void remove(RoomModel roomModel) {
         roomRepository.delete(roomModel);
     }
+
+    //JPQL
+    public RoomModel getRoomModelBynumber(Integer no){
+        return roomRepository.getRoomModelBynumber(no);
+    }
+
+    //Native
+    public RoomModel getRoomModelNum(Integer no){
+        return roomRepository.getRoomModelBynum(no);
+    }
+
+
 }
