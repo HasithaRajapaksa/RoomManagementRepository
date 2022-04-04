@@ -1,6 +1,7 @@
 package com.example.crudapp.repository;
 
 import com.example.crudapp.models.RoomModel;
+import com.example.crudapp.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -23,5 +24,7 @@ public interface RoomRepository extends JpaRepository<RoomModel,Integer> {
             nativeQuery = true
     )
     RoomModel getRoomModelBynum(@Param("number") Integer no);
+
+
 
 }

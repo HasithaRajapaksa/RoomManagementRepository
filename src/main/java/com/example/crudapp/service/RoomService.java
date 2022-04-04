@@ -2,6 +2,7 @@ package com.example.crudapp.service;
 
 import com.example.crudapp.models.Room;
 import com.example.crudapp.models.RoomModel;
+import com.example.crudapp.models.UserModel;
 import com.example.crudapp.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,8 @@ public class RoomService implements BaseService{
     public RoomModel getRoomModelNum(Integer no){
         return roomRepository.getRoomModelBynum(no);
     }
+
+
 
 
 }

@@ -2,6 +2,7 @@ package com.example.crudapp.controllers;
 
 import com.example.crudapp.models.Room;
 import com.example.crudapp.models.RoomModel;
+import com.example.crudapp.models.UserModel;
 import com.example.crudapp.service.RoomService;
 import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,7 @@ public class RoomRestController {
         return roomService.getRoomModelBynumber(no);
     }
 
+    //Native
     @GetMapping("/findBynum/{no}")
     public RoomModel findByNum(@PathVariable Integer no){
         return roomService.getRoomModelNum(no);
