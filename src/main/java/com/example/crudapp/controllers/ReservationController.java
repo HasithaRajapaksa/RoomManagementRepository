@@ -1,13 +1,14 @@
 package com.example.crudapp.controllers;
 
+import com.example.crudapp.models.Inputs;
 import com.example.crudapp.models.ReservationsModel;
+import com.example.crudapp.results.Statistics;
+import com.example.crudapp.results.Stats;
 import com.example.crudapp.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,5 +22,14 @@ public class ReservationController {
     public Optional<ReservationsModel> getReservationById(@PathVariable Integer id){
         return reservationService.getReservationById(id);
     }
+
+    @PostMapping("/multipleReservations")
+    public List<?> multipleReservationStats(@RequestBody Inputs inputs){
+        return reservationService.multipleReservationStats(inputs.startDate,inputs.endDate);
+    }
+
+
+
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.crudapp.controllers;
 
+import com.example.crudapp.models.Inputs;
 import com.example.crudapp.models.Room;
 import com.example.crudapp.models.RoomModel;
 import com.example.crudapp.models.UserModel;
@@ -52,6 +53,12 @@ public class RoomRestController {
     @GetMapping("/findBynum/{no}")
     public RoomModel findByNum(@PathVariable Integer no){
         return roomService.getRoomModelNum(no);
+    }
+
+    @PostMapping("/view")
+    public void test(@RequestBody Inputs inputs){
+        System.out.print(inputs.startDate);
+        System.out.print(inputs.endDate);
     }
 
 
