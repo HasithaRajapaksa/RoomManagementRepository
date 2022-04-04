@@ -2,10 +2,13 @@ package com.example.crudapp.controllers;
 
 import com.example.crudapp.models.Inputs;
 import com.example.crudapp.models.ReservationsModel;
+import com.example.crudapp.models.RoomModel;
 import com.example.crudapp.results.Statistics;
 import com.example.crudapp.results.Stats;
 import com.example.crudapp.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +26,23 @@ public class ReservationController {
         return reservationService.getReservationById(id);
     }
 
+    //change to query parameters with HTTP GET
+    //learn http status codes
+    //hybernate queries -hql
+    //transactions - levels
     @PostMapping("/multipleReservations")
-    public List<?> multipleReservationStats(@RequestBody Inputs inputs){
-        return reservationService.multipleReservationStats(inputs.startDate,inputs.endDate);
+    @ResponseBody
+    public List<?> multipleReservationStats(@RequestParam(name = "start",required = false) String start, @RequestParam(name = "end",required = false) String end){
+
+        return reservationService.multipleReservationStats(start,end);
     }
 
 
-
+    @PostMapping("/add")
+    public ResponseEntity<?> addReservations(@RequestBody ReservationsModel reservationsModel){
+        reservationService.addReservation(reservationsModel);
+        return new ResponseEntity<String>("Created Successfully", HttpStatus.CREATED);
+    }
 
 
 }

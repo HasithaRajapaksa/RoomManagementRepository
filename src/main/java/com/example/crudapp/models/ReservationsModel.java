@@ -28,10 +28,12 @@ public class ReservationsModel {
     public ReservationsModel() {
     }
 
-    public ReservationsModel(Integer id, String date, Integer hours) {
+    public ReservationsModel(Integer id, String date, Integer hours, RoomModel roomModel, UserModel userModel) {
         this.id = id;
         this.date = date;
         this.hours = hours;
+        this.roomModel = roomModel;
+        this.userModel = userModel;
     }
 
     public Integer getId() {
@@ -56,5 +58,21 @@ public class ReservationsModel {
 
     public void setHours(Integer hours) {
         this.hours = hours;
+    }
+
+    public RoomModel getRoomModel() {
+        return roomModel;
+    }
+
+    public void setRoomModel(RoomModel roomModel) {
+        this.roomModel = roomModel;
+    }
+
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
     }
 }

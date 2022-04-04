@@ -21,4 +21,8 @@ public class ReservationService {
     }
 
     public List<?> multipleReservationStats(String start, String end){return reservationRepository.multipleReservationStats(start, end);}
+
+    public ReservationsModel addReservation(ReservationsModel reservationsModel){
+        return reservationRepository.save(reservationsModel);
+    }
 }

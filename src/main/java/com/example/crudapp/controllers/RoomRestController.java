@@ -55,11 +55,7 @@ public class RoomRestController {
         return roomService.getRoomModelNum(no);
     }
 
-    @PostMapping("/view")
-    public void test(@RequestBody Inputs inputs){
-        System.out.print(inputs.startDate);
-        System.out.print(inputs.endDate);
-    }
+
 
 
 
