@@ -18,11 +18,11 @@ public class ReservationsModel {
     private Integer hours;
 
     @ManyToOne
-    @JoinColumn(name = "room_id")
+    @JoinColumn(name = "room_id",referencedColumnName = "id")
     RoomModel roomModel;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
     UserModel userModel;
 
     public ReservationsModel() {
@@ -30,6 +30,13 @@ public class ReservationsModel {
 
     public ReservationsModel(Integer id, String date, Integer hours, RoomModel roomModel, UserModel userModel) {
         this.id = id;
+        this.date = date;
+        this.hours = hours;
+        this.roomModel = roomModel;
+        this.userModel = userModel;
+    }
+
+    public ReservationsModel(String date, Integer hours, RoomModel roomModel, UserModel userModel) {
         this.date = date;
         this.hours = hours;
         this.roomModel = roomModel;

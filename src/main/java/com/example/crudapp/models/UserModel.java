@@ -17,6 +17,13 @@ public class UserModel {
     @OneToMany(mappedBy = "userModel")
     Set<ReservationsModel> reservations;
 
+    public UserModel() {
+    }
+
+    public UserModel(Integer id, String userName) {
+        this.id = id;
+        this.userName = userName;
+    }
 
     public Integer getId() {
         return id;

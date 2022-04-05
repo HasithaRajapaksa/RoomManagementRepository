@@ -1,6 +1,7 @@
 package com.example.crudapp.controllers;
 
 import com.example.crudapp.models.Inputs;
+import com.example.crudapp.models.ReservationsBody;
 import com.example.crudapp.models.ReservationsModel;
 import com.example.crudapp.models.RoomModel;
 import com.example.crudapp.results.Statistics;
@@ -30,7 +31,7 @@ public class ReservationController {
     //learn http status codes
     //hybernate queries -hql
     //transactions - levels
-    @PostMapping("/multipleReservations")
+    @GetMapping("/multipleReservations")
     @ResponseBody
     public List<?> multipleReservationStats(@RequestParam(name = "start",required = false) String start, @RequestParam(name = "end",required = false) String end){
 
@@ -39,9 +40,13 @@ public class ReservationController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<?> addReservations(@RequestBody ReservationsModel reservationsModel){
-        reservationService.addReservation(reservationsModel);
-        return new ResponseEntity<String>("Created Successfully", HttpStatus.CREATED);
+    public ResponseEntity<String> addReservations(@RequestBody ReservationsBody reservationsBody){
+
+
+       reservationService.addReservation(reservationsBody);
+
+       return new ResponseEntity<String>("Created Successfully", HttpStatus.CREATED);
+
     }
 
 
