@@ -30,7 +30,7 @@ public class ReservationController {
     //change to query parameters with HTTP GET
     //learn http status codes
     //hybernate queries -hql
-    //transactions - levels
+    //transactions - isolation levels
     @GetMapping("/multipleReservations")
     @ResponseBody
     public List<?> multipleReservationStats(@RequestParam(name = "start",required = false) String start, @RequestParam(name = "end",required = false) String end){

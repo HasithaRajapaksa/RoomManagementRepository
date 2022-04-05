@@ -14,6 +14,8 @@ public interface RoomRepository extends JpaRepository<RoomModel,Integer> {
 
     RoomModel getById(Integer id);
 
+    Optional<RoomModel> findById(Integer id);
+
     //JPQL Query
     @Query("select r from RoomModel r where r.number= ?1 ")
     RoomModel getRoomModelBynumber(Integer no);

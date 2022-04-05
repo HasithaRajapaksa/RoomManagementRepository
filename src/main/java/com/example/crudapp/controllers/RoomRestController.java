@@ -55,7 +55,26 @@ public class RoomRestController {
         return roomService.getRoomModelNum(no);
     }
 
+    //with validations(if available then 200 OK and if not found 404 not found.
+    @GetMapping("/getRooms/{id}")
+    public ResponseEntity<RoomModel> getRoomById(@PathVariable Integer id){
 
+            return roomService.getRoomById(id);
+    }
+
+    //with validations
+    @DeleteMapping("/removeRooms/{id}")
+    public ResponseEntity<HttpStatus> remove(@PathVariable Integer id){
+
+            return roomService.remove(id);
+
+    }
+
+    @PostMapping("/addRooms")
+    public ResponseEntity<RoomModel> createRooms(@RequestBody RoomModel roomModel){
+
+            return roomService.createRooms(roomModel);
+    }
 
 
 
