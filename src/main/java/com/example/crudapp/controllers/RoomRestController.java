@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/rooms")
@@ -55,9 +56,9 @@ public class RoomRestController {
         return roomService.getRoomModelNum(no);
     }
 
-    //with validations(if available then 200 OK and if not found 404 not found.
+
     @GetMapping("/getRooms/{id}")
-    public ResponseEntity<RoomModel> getRoomById(@PathVariable Integer id){
+    public Optional<RoomModel> getRoomById(@PathVariable Integer id){
 
             return roomService.getRoomById(id);
     }
@@ -70,6 +71,7 @@ public class RoomRestController {
 
     }
 
+    //with validations
     @PostMapping("/addRooms")
     public ResponseEntity<RoomModel> createRooms(@RequestBody RoomModel roomModel){
 

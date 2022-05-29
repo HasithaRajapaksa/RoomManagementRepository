@@ -52,14 +52,14 @@ public class RoomService implements BaseService{
     }
 
     //with validations(if available then 200 OK and if not found 404 not found.
-    public ResponseEntity<RoomModel> getRoomById(Integer id){
+    public Optional<RoomModel> getRoomById(Integer id){
 
         Optional<RoomModel> roomModel = roomRepository.findById(id);
 
         if (roomModel.isPresent()) {
-            return new ResponseEntity<>(roomModel.get(), HttpStatus.OK);
+            return roomModel;
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return null;
         }
 
     }
