@@ -59,7 +59,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>docker-spring</finalName>
+		<finalName>docker-springs</finalName>
 	</build>
 
 </project>
