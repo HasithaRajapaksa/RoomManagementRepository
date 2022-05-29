@@ -1,17 +1,12 @@
 package com.example.crudapp.controllers;
 
-import com.example.crudapp.models.Inputs;
-import com.example.crudapp.models.Room;
 import com.example.crudapp.models.RoomModel;
-import com.example.crudapp.models.UserModel;
 import com.example.crudapp.service.RoomService;
-import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,6 +25,11 @@ public class RoomRestController {
     @GetMapping("/getAllRooms")
     public Iterable<RoomModel> findAllRooms(){
             return roomService.findAll();
+    }
+
+    @GetMapping("/check")
+    public String verify(){
+        return "working!!";
     }
 
     @GetMapping("/find/{id}")
